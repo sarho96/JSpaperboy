@@ -9,16 +9,37 @@
 </body>
 <script>
 
-// Objects in Js is defined by first letter capitalization
-// this refers to the ObjectName
-//below I am creating an object prototype that has name, exp, side, and earning as its states
-var Paperboy = function (name, experience, sideOdd, sideEven, earning){
-  this.name = "Bob",
-  this.experience = 0,
-  this.sideOdd = "odd",
-  this.sideEven = "even",
-  this.earning=0
+var name = prompt("What is your name?");
+var experience = 0;
+var side = prompt("which side did you work on?", "Odd or Even?");
+var earning = 0;
+// they get paid $0.25 for every paper delivered
+var singleDeliveryPay = 0.25;
+// paid $0.50 for every paper over quota
+var overQuotaDeliveryPay = 0.50;
+// if paperboy has not met quota, they lose $2
+var underQuota = 2;
+
+function quota(experience){
+  // quota is calculated as half your experience added to the minimum
+  // minimum number of papers is 50
+  return (experience / 2) + 50;
 }
+
+
+
+//By convention, its good to capitalize first letters for Objects
+//below I am creating an constructor object that has name, exp, side, and earning
+//.this refers to Paperboy object prototype
+var Paperboy = function (name, experience, side, earning){
+  this.name = name,
+  this.experience = experience,
+  this.side = side,
+  this.earning = 0
+}
+
+var person1 = new Paperboy("Alice", 4, odd);
+var person2 = new Paperboy("Bob");
 
 // they get paid $0.25 for every paper delivered
 var singleDeliveryPay = 0.25;
@@ -28,14 +49,10 @@ var overQuotaDeliveryPay = 0.50;
 var underQuota = 2;
 
 
-//1. quota
 function quota (){
-
-
   // quota is calculated as half your experience added to the minimum
   // minimum number of papers is 50
 }
-//2. deliver (start and end)
 
 function houseNum(start,finish){
   //each day paperboy is given a house number to start and number to finish
@@ -44,7 +61,6 @@ function houseNum(start,finish){
 function report(){
   document.write(paperboy.name + "delivered" + "xx number of houses");
 }
-//3. report - returns a string about paperboy's performance
 
 </script>
 </html>
