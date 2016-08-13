@@ -8,59 +8,19 @@
     <h1>Paperboy in JS</h1>
 </body>
 <script>
+  // What's your name?
+  var name = prompt("what's your name?");
+  // How much did you deliver today?
+  var delivered = prompt("How many did you deliver?");
+  // What was your starting house and ending house?
+  var houseStart = prompt("What was your starting number?");
+  var houseEnd = prompt("What was your ending number?");
+  // Your Quota was...
+  function quota(){
+  return (parseInt(delivered) + 50 /2);
+  }
 
-var name = prompt("What is your name?");
-var experience = 0;
-var side = prompt("which side did you work on?", "Odd or Even?");
-var earning = 0;
-// they get paid $0.25 for every paper delivered
-var singleDeliveryPay = 0.25;
-// paid $0.50 for every paper over quota
-var overQuotaDeliveryPay = 0.50;
-// if paperboy has not met quota, they lose $2
-var underQuota = 2;
-
-function quota(experience){
-  // quota is calculated as half your experience added to the minimum
-  // minimum number of papers is 50
-  return (experience / 2) + 50;
-}
-
-
-
-//By convention, its good to capitalize first letters for Objects
-//below I am creating an constructor object that has name, exp, side, and earning
-//.this refers to Paperboy object prototype
-var Paperboy = function (name, experience, side, earning){
-  this.name = name,
-  this.experience = experience,
-  this.side = side,
-  this.earning = 0
-}
-
-var person1 = new Paperboy("Alice", 4, odd);
-var person2 = new Paperboy("Bob");
-
-// they get paid $0.25 for every paper delivered
-var singleDeliveryPay = 0.25;
-// paid $0.50 for every paper over quota
-var overQuotaDeliveryPay = 0.50;
-// if paperboy has not met quota, they lose $2
-var underQuota = 2;
-
-
-function quota (){
-  // quota is calculated as half your experience added to the minimum
-  // minimum number of papers is 50
-}
-
-function houseNum(start,finish){
-  //each day paperboy is given a house number to start and number to finish
-}
-
-function report(){
-  document.write(paperboy.name + "delivered" + "xx number of houses");
-}
+  document.write(name + ", you delivered" + delivered + ", so your quota is: " + quota());
 
 </script>
 </html>
