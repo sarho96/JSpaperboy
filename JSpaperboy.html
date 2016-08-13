@@ -8,19 +8,24 @@
     <h1>Paperboy in JS</h1>
 </body>
 <script>
-  // What's your name?
-  var name = prompt("what's your name?");
-  // How much did you deliver today?
-  var delivered = prompt("How many did you deliver?");
-  // What was your starting house and ending house?
-  var houseStart = prompt("What was your starting number?");
-  var houseEnd = prompt("What was your ending number?");
-  // Your Quota was...
-  function quota(){
-  return (parseInt(delivered) + 50 /2);
+//finds out the number of delivered homes
+  function deliveredNum(start,end){
+    delivered = end-start;
+    return delivered;
   }
-
-  document.write(name + ", you delivered" + delivered + ", so your quota is: " + quota());
+//calculates the earning based on quota
+  function earning(){
+    var quota = (delivered/2)+50;
+    var rate = 0.25;
+    var pay = quota*rate;
+    return pay;
+  }
+// give a greeting and report
+  function greet(){
+    return ("Hello, you've delivered to " + delivered + " number of homes. Therefore you earned $" + earning());
+  }
+  deliveredNum(1,100);
+  greet();
 
 </script>
 </html>
