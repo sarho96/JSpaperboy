@@ -8,22 +8,38 @@
     <h1>Paperboy in JS</h1>
 </body>
 <script>
+
+//find out information
+  var name = prompt("What is your name?");
+  var start = prompt("What was your starting house number?");
+  var end = prompt("What was your ending house number?");
+
 //finds out the number of delivered homes
-
-
-  function deliveredNum(start,end){
-    delivered = end-start;
+  function deliveredNum(){
+    var delivered = end-start;
     return delivered;
   }
-//calculates quota
-  function quota(){
-    var quota = (delivered/2)+50;
-  }
+
+
+  //calculates quota
+    function quota(){
+      var delivered = deliveredNum();
+      var quota = (delivered/2)+50;
+      return quota;
+    }
+
+   quota();
+   
 //calculates the earning based on quota
   function earning(){
     var pay;
+    var amtOverQuota;
+    var actualDeliveredAmt
     if (delivered > quota){
-      pay = delivered * 0.50;
+      amtOverQuota = delivered - quota; //this calculates the amount over quota
+      amtOverQuota * 0.50;
+      actualDeliveredAmt = quota * 0.25 //this calculates the regular amt
+      pay = amtOverQuota + actualDeliveredAmt;
     } else if (delivered < quota) {
       pay = (delivered * 0.25) - 2;
     } else {
@@ -35,7 +51,8 @@
   function greet(){
     return ("Hello, you've delivered to " + delivered + " number of homes. Therefore you earned $" + earning());
   }
-  deliveredNum(0,100);
+
+  deliveredNum();
   quota();
   greet();
 
