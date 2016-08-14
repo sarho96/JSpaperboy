@@ -9,22 +9,34 @@
 </body>
 <script>
 //finds out the number of delivered homes
+
+
   function deliveredNum(start,end){
     delivered = end-start;
     return delivered;
   }
+//calculates quota
+  function quota(){
+    var quota = (delivered/2)+50;
+  }
 //calculates the earning based on quota
   function earning(){
-    var quota = (delivered/2)+50;
-    var rate = 0.25;
-    var pay = quota*rate;
+    var pay;
+    if (delivered > quota){
+      pay = delivered * 0.50;
+    } else if (delivered < quota) {
+      pay = (delivered * 0.25) - 2;
+    } else {
+      pay = delivered * 0.25;
+    }
     return pay;
   }
-// give a greeting and report
+//give a greeting and report
   function greet(){
     return ("Hello, you've delivered to " + delivered + " number of homes. Therefore you earned $" + earning());
   }
-  deliveredNum(1,100);
+  deliveredNum(0,100);
+  quota();
   greet();
 
 </script>
